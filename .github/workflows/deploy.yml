@@ -32,6 +32,6 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        source: "dist/posts-get/browser/*"
+        source: "dist/examen2cli/browser/*"
         target: "/var/www/html/examen"
         strip_components: 3
