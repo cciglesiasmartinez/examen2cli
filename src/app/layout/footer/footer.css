@@ -1,0 +1,14 @@
+/* Footer Component Styles */
+
+footer {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-top: 2px solid #6366f1;
+  margin-top: auto;
+  color: #cbd5e1;
+}
+
+footer p {
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 500;
+}

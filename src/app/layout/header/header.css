@@ -1,0 +1,26 @@
+/* Header Component Styles */
+
+.navbar {
+  padding: 16px 0;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.nav-link {
+  font-weight: 700;
+  padding: 12px 24px;
+  margin: 0 8px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}

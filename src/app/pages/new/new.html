@@ -1,0 +1,82 @@
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card form-card">
+        <div class="card-header">
+          <h4 class="mb-0">Crear Nueva Serie</h4>
+        </div>
+        <div class="card-body">
+          @if (message) {
+            <div>
+              {{ message }}
+            </div>
+          }
+
+          <form [formGroup]="serieForm" (ngSubmit)="onSubmit()">
+            <div class="form-input-group">
+              <label for="title" class="form-label">Titulo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                formControlName="title"
+                placeholder="Nombre de la serie"
+                [class.is-invalid]="serieForm.get('title')?.invalid && submitted"
+              />
+              @if (getFieldError('title')) {
+                <div class="invalid-feedback">
+                  {{ getFieldError('title') }}
+                </div>
+              }
+            </div>
+
+            <div class="form-input-group">
+              <label for="channel" class="form-label">Canal</label>
+              <input
+                type="text"
+                class="form-control"
+                id="channel"
+                formControlName="channel"
+                placeholder="Canal de TV"
+                [class.is-invalid]="serieForm.get('channel')?.invalid && submitted"
+              />
+              @if (getFieldError('channel')) {
+                <div class="invalid-feedback">
+                  {{ getFieldError('channel') }}
+                </div>
+              }
+            </div>
+
+            <div class="form-input-group">
+              <label for="rating" class="form-label">Calificacion (1-10)</label>
+              <input
+                type="number"
+                class="form-control"
+                id="rating"
+                formControlName="rating"
+                placeholder="Puntuacion"
+                min="1"
+                max="10"
+                [class.is-invalid]="serieForm.get('rating')?.invalid && submitted"
+              />
+              @if (getFieldError('rating')) {
+                <div class="invalid-feedback">
+                  {{ getFieldError('rating') }}
+                </div>
+              }
+            </div>
+
+            <button type="submit" class="btn-submit" [disabled]="loading">
+              @if (loading) {
+                <span>Enviando...</span>
+              }
+              @if (!loading) {
+                <span>Crear Serie</span>
+              }
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

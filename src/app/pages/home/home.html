@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="home-header">
+    <h2>Series Disponibles</h2>
+  </div>
+
+  @if (loading()) {
+    <div class="alert alert-info" role="alert">
+      Cargando series...
+    </div>
+  }
+
+  @if (error()) {
+    <div class="alert alert-danger" role="alert">
+      {{ error() }}
+    </div>
+  }
+
+  @if (!loading() && series().length > 0) {
+    <div class="row g-4">
+      @for (serie of series(); track serie.title) {
+        <div class="col-md-6 col-lg-4">
+          <div class="card serie-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ serie.title }}</h5>
+              <p class="card-text">
+                <strong>Canal:</strong>
+                <span class="text-muted">{{ serie.channel }}</span>
+              </p>
+              <p class="card-text">
+                <strong>Calificacion:</strong>
+                <span class="badge badge-rating">{{ serie.rating }}/10</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  @if (!loading() && series().length === 0 && !error()) {
+    <div class="alert alert-warning" role="alert">
+      No hay series disponibles
+    </div>
+  }
+</div>
